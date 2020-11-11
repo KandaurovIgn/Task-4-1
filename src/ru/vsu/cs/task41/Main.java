@@ -10,16 +10,14 @@ public class Main {
     }
 
     public static double getNumber() {
-        double number;
-        Scanner n1 = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Input number:");
-        number = n1.nextDouble();
-        return number;
+        
+        return scanner.nextDouble();
     }
 
     public static double calculateY(double number) {
-        double result;
         double a = 256;
         double b = a / number * number;
         double c = number * number + b;
@@ -29,7 +27,8 @@ public class Main {
             b = a / c;
             c = number * number + b;
         }
-        result = number / b;
+        double result = number / b;
+        
         return result;
     }
 
