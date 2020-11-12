@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        double x = getNumber();
-        showResult(calculateY(x));
+        double number = getNumber();
+        showResult(calculateY(number));
     }
 
     public static double getNumber() {
@@ -18,18 +18,17 @@ public class Main {
     }
 
     public static double calculateY(double number) {
-        double a = 256;
-        double b = a / number * number;
-        double c = number * number + b;
+        double thePowerOfTwo = 256;
+        double fraction = thePowerOfTwo / number * number;
+        double denominator = number * number + fraction;
 
-        while (a >= 2) {
-            a = a / 2;
-            b = a / c;
-            c = number * number + b;
+        while (thePowerOfTwo > 2) {
+            thePowerOfTwo = thePowerOfTwo / 2;
+            fraction = thePowerOfTwo / denominator;
+            denominator = number * number + fraction;
         }
-        double result = number / b;
 
-        return result;
+        return number / denominator;
     }
 
     public static void showResult(double result) {
