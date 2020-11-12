@@ -18,14 +18,15 @@ public class Main {
     }
 
     public static double calculateY(double number) {
+        double squareOfNumber = number * number;
         double thePowerOfTwo = 256;
-        double fraction = thePowerOfTwo / number * number;
-        double denominator = number * number + fraction;
+        double fraction = thePowerOfTwo / squareOfNumber;
+        double denominator = squareOfNumber + fraction;
 
         while (thePowerOfTwo > 2) {
             thePowerOfTwo = thePowerOfTwo / 2;
             fraction = thePowerOfTwo / denominator;
-            denominator = number * number + fraction;
+            denominator = squareOfNumber + fraction;
         }
 
         return number / denominator;
